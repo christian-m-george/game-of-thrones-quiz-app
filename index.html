@@ -10,24 +10,29 @@
   </head>
   <body>
     <header><h1>Do you have what it takes to claim the Iron Throne?</h1></header>
-    <div class='main-section quiz-start'><button class='start-button' id='start-quiz-button'>Begin Quiz</button></div>
+    <div class='main-section quiz-start'>
+        <button class='start-button' id='start-quiz-button'>Begin Quiz</button>
+    </div>
     <div class='main-section quiz-questions hidden-section'>
         <div class='question-wrapper'>
             <h1 class='text' id='question'></h1>
             <div id='choices'>
                 <ul id='choice-list'>
-                    <!-- <li><input class="option" type="radio" value="0" name="option"></li>
-                    <li><input class="option" type="radio" value="1" name="option"></li>
-                    <li><input class="option" type="radio" value="2" name="option"></li>
-                    <li><input class="option" type="radio" value="3" name="option"></li> -->
                 </ul>
+                <button class='next-question'>Select</button>
             </div>
-        </div>
-        <div class='question-number' id='question-number-display'>
-            Question 1 of 10
         </div>
     </div>
     <div class='main-section quiz-results'>
+        <p>Total questions out of</p>
+    </div>
+    <div class='question-counter hidden-section'>
+        <h4>You are on question:</h4>
+        <p class='paragraph-question-counter'></p>
+    </div>
+    <div class='correct-counter hidden-section'>
+        <h4>Total correct answers:</h4>
+        <p class='paragraph-correct-counter'></p>
     </div>
     <div class='social-bar'>
         <a href='#' class='facebook-icon'><i class="fa fa-facebook"></i></a> 

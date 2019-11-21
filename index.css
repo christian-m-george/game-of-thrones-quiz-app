@@ -70,3 +70,26 @@ header {
     display: none;
 }
 
+.question-counter {
+    position:fixed;
+    left:200px;
+    top:400px;
+    width: 200px;
+}
+
+.correct-counter {
+    position:fixed;
+    right:200px;
+    top:400px;
+    width: 200px;
+}
+
+.question-counter, .correct-counter {
+    color: white;
+    border-radius: 2px;
+    font-family: 'Game of Thrones', serif;
+}
+
+.quiz-results {
+    display: none;
+}
