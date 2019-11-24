@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Game of Thrones Quiz</title>
     <!-- <link href="GameofThrones.css" rel="stylesheet"> -->
-    <link href="index.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    
-  </head>
-  <body>
-    <header><h1>Do you have what it takes to claim the Iron Throne?</h1></header>
-    <div class='main-section quiz-start'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <h1>Do you have what it takes to claim the Iron Throne?</h1>
+    </header>
+    <section class='explain-answer'>
+        <h4 class='you-correct'>You are correct!</h4>
+        <h4 class='you-wrong'>You are incorrect!</h4>
+        <p class='detail-explain'></p>
+    </section>
+    <section class='main-section quiz-start'>
         <button class='start-button' id='start-quiz-button'>Begin Quiz</button>
-    </div>
-    <div class='main-section quiz-questions hidden-section'>
+    </section>
+    <section class='main-section quiz-questions'>
         <div class='question-wrapper'>
             <h1 class='text' id='question'></h1>
             <div id='choices'>
@@ -22,29 +31,27 @@
                 <button class='next-question'>Select</button>
             </div>
         </div>
-    </div>
-    <div class='main-section quiz-results'>
-        <p>Total questions out of</p>
-    </div>
-    <div class='question-counter hidden-section'>
-        <h4>You are on question:</h4>
-        <p class='paragraph-question-counter'></p>
-    </div>
-    <div class='correct-counter hidden-section'>
+    </section>
+    <section class='main-section quiz-results'>
+        <h3>Total questions correct out of</h3>
+        <span>
+            <h5 class='which-character'></h5>
+            <p class='character-text'></p>
+        </span>
+        <button class='restart-quiz'>Try again!</button>
+    </section>
+    <section class='correct-counter'>
         <h4>Total correct answers:</h4>
         <p class='paragraph-correct-counter'></p>
-    </div>
-    <div class='social-bar'>
-        <a href='#' class='facebook-icon'><i class="fa fa-facebook"></i></a> 
+    </section>
+    <footer class='social-bar'>
+        <a href='#' class='facebook-icon'><i class="fa fa-facebook"></i></a>
         <a href='#' class='twitter-icon'><i class="fa fa-twitter"></i></a>
         <a href='#' class='google-icon'><i class="fa fa-google"></i></a>
-    </div>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-  </body>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</body>
+
 </html>
-
-

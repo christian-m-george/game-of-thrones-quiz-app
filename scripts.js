@@ -75,33 +75,51 @@ let currentQuestion = 0;
 let totalQuestions = questionArray.length;
 let totalCorrect = 0;
 
-//   console.log(totalQuestions);
-//   console.log(questionArray[0]);
+$(function() {
+    $('.quiz-questions').hide();
+    $('.correct-counter').hide();
+});
 
-$('.start-button').on('click', function () {
+$(document).on('click','.start-button', function () {
     // hide start section and show question section
-    $('.quiz-start').addClass('hidden-section');
-    $('.quiz-questions').removeClass('hidden-section');
-    $('.question-counter').removeClass('hidden-section');
-    $('.correct-counter').removeClass('hidden-section');
+    $('.quiz-start').hide();
+    $('.quiz-questions').show();
+    $('.question-counter').show();
+    $('.correct-counter').show();
     // add question text to question section
+    $('#choice-list').html('');
     $('#question').text(questionArray[currentQuestion].questionText);
     $('.question-counter').append(currentQuestion);
     // test for loop
     // console.log(questionArray[9].questionChoices[0])
     for (let i = 0; i < questionArray[currentQuestion].questionChoices.length; i++) {
-        let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option">${questionArray[currentQuestion].questionChoices[i]}</li>`;
+        let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option" required>${questionArray[currentQuestion].questionChoices[i]}</li>`;
         console.log(buildChoiceList);
         $('#choice-list').append(buildChoiceList);
     }
 });
 
-$('.next-question').on('click', function () {
+$(document).on('click', '.next-question', function () {
     // let checkedValue = $('.option').filter(":checked").val();
     let checkedValue = $(this).parent().find("input[class='option']:checked").val();
+    // if ((checkedValue == undefined) || (checkedValue == 'undefined') || (checkedValue == null) || (checkedValue)) {
+    //     alert('Please make a selection.')
+    // }
     console.log(currentQuestion, 'this is current question');
     console.log(checkedValue, 'my answer');
     console.log(questionArray[currentQuestion].questionCorrectChoice, 'correct answer')
+    // show question details
+    $('.explain-answer').show();
+    if (checkedValue == questionArray[(currentQuestion)].questionCorrectChoice) {
+        $('.you-correct').show();
+        $('.you-wrong').hide();
+    }
+    else {
+        $('.you-correct').hide();
+        $('.you-wrong').show();
+    }
+    $('.detail-explain').text(questionArray[(currentQuestion)].correctDetails);
+
     // if statement to add to correct question total
     if (checkedValue == questionArray[currentQuestion].questionCorrectChoice) {
         totalCorrect++;
@@ -110,27 +128,72 @@ $('.next-question').on('click', function () {
     // else show details if answered incorrectly
     console.log(totalCorrect, 'this is total correct');
     currentQuestion++;
+
     if (currentQuestion == (questionArray.length)) {
         $('.main-section').hide();
         $('.quiz-results p').text(`Total ${totalCorrect} out of ${totalQuestions}`)
         $('.quiz-results').show();
-        alert(`we've reached last question`);
+        $('.correct-counter').hide();
+        alert(`we've completed last question`);
     }
     else {
         // test user selection
-        
-        $('.correct-counter').empty();
-        $('.correct-counter').append(totalCorrect);
-        // currentQuestion++;
+        $('.paragraph-correct-counter').empty();
+        $('.paragraph-correct-counter').append(totalCorrect);
         $('.question-counter').empty();
         $('.question-counter').append(currentQuestion);
         $('#question').empty();
         $('#question').text(questionArray[currentQuestion].questionText);
         $('#choice-list').empty();
         for (let i = 0; i < questionArray[currentQuestion].questionChoices.length; i++) {
-            let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option">${questionArray[currentQuestion].questionChoices[i]}</li>`;
+            let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option" required>${questionArray[currentQuestion].questionChoices[i]}</li>`;
             console.log(buildChoiceList);
             $('#choice-list').append(buildChoiceList);
         }
     }
 });
+
+
+$(document).on('click', '.restart-quiz', function () {
+    currentQuestion = 0;
+    totalCorrect = 0;
+    $('.paragraph-correct-counter').html('');
+    $('.explain-answer').hide();
+    $('.quiz-results').hide();
+    $('.quiz-start').show();
+});
+
+
+
+// function someFunction (someParameter) {
+// if (totalCorrect >= 9) {
+//     $('.which-character').text('You are Tyrion Lannister!');
+//     $('.character-text').text('You drink and you know things. Well, at the very least, you know things about Game of Thrones!');
+// }   
+
+// if (totalCorrect >= 7) {
+//     $('.which-character').text('You are Littlefinger!');
+//     $('.character-text').text('You know a whole lot about Westeros! You are not exactly a good person but few would argue against your intellectual prowess.');
+// }   
+
+// if (totalCorrect >= 4) {
+//     $('.which-character').text('You are Ned Stark!');
+//     $('.character-text').text('Strong and honorable, you definitely have some knowledge but there are some gaps that could leave you in a bad position.');
+// }   
+
+// if (totalCorrect >= 2) {
+//     $('.which-character').text('You are Kraznys mo Nakloz');
+//     $('.character-text').text('You probably thought you knew what you were doing, gaming Danaerys for one of her dragons. You really thought that’d work, didn’t you?');
+// }   
+
+// else {
+//     $('.which-character').text('You are Hodor!');
+//     $('.character-text').text('You have your merits, however, knowledge is not one of them.');
+// }   
+// }
+
+
+// ask how to prevent going to next question if answer not selected
+// ask about how best to style
+// ask about merging the explain answer div into the main section div
+// ask about making th

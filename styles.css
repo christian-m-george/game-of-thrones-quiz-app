@@ -12,12 +12,24 @@
     box-sizing: border-box;
 }
   
-html {
+/* html {
     background-image: url(https://www.windowschimp.com/wp-content/uploads/2015/06/Windows10-Game-of-thrones-wallpaper-gameofthrones15_160.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%
+} */
+
+html {
+    background: rgba(0, 0, 0, 0) url("https://www.windowschimp.com/wp-content/uploads/2015/06/Windows10-Game-of-thrones-wallpaper-gameofthrones15_160.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    text-align: center;
 }
   
 header {
@@ -27,22 +39,27 @@ header {
     margin-top: 50px;
 }
 
+section, footer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .main-section {
     text-align: center;
     background-color: darkgrey;
     color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 85%;
     border-radius: 2px;
     font-family: 'Game of Thrones', serif;
-    opacity: .6;
-
+    /* opacity: .6; */
+    padding: 20px;
 }
 
 .social-bar {
-    position: fixed;
-    bottom: 0;
     width: 100%;
     display: inline-block;
     text-align: center;
@@ -66,30 +83,37 @@ header {
     font-size: 18px;
 }
 
-.hidden-section {
-    display: none;
-}
-
-.question-counter {
-    position:fixed;
-    left:200px;
-    top:400px;
-    width: 200px;
+.detail-explain, #choice-list {
+    font-family: serif;
 }
 
 .correct-counter {
-    position:fixed;
-    right:200px;
-    top:400px;
     width: 200px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Game of Thrones', serif;
+    background-color: darkgrey;
+    /* opacity: .6; */
+    text-align: center;
+    padding: 10px;
 }
 
-.question-counter, .correct-counter {
+.explain-answer {
+    display: none;
+    width: 35%;
     color: white;
-    border-radius: 2px;
+    border-radius: 5px;
     font-family: 'Game of Thrones', serif;
+    background-color: darkgrey;
+    /* opacity: .6; */
+    text-align: center;
+    padding: 10px;
 }
 
 .quiz-results {
     display: none;
+}
+
+ul {
+    list-style: none;
 }
