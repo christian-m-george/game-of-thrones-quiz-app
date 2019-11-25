@@ -75,12 +75,12 @@ let currentQuestion = 0;
 let totalQuestions = questionArray.length;
 let totalCorrect = 0;
 
-$(function() {
+$(function () {
     $('.quiz-questions').hide();
     $('.correct-counter').hide();
 });
 
-$(document).on('click','.start-button', function () {
+$(document).on('click', '.start-button', function () {
     // hide start section and show question section
     $('.quiz-start').hide();
     $('.quiz-questions').show();
@@ -102,53 +102,56 @@ $(document).on('click','.start-button', function () {
 $(document).on('click', '.next-question', function () {
     // let checkedValue = $('.option').filter(":checked").val();
     let checkedValue = $(this).parent().find("input[class='option']:checked").val();
-    // if ((checkedValue == undefined) || (checkedValue == 'undefined') || (checkedValue == null) || (checkedValue)) {
-    //     alert('Please make a selection.')
-    // }
-    console.log(currentQuestion, 'this is current question');
-    console.log(checkedValue, 'my answer');
-    console.log(questionArray[currentQuestion].questionCorrectChoice, 'correct answer')
-    // show question details
-    $('.explain-answer').show();
-    if (checkedValue == questionArray[(currentQuestion)].questionCorrectChoice) {
-        $('.you-correct').show();
-        $('.you-wrong').hide();
+    if ((checkedValue == undefined) || (checkedValue == 'undefined') || (checkedValue == null)) {
+        alert('Please make a selection.');
     }
-    else {
-        $('.you-correct').hide();
-        $('.you-wrong').show();
-    }
-    $('.detail-explain').text(questionArray[(currentQuestion)].correctDetails);
 
-    // if statement to add to correct question total
-    if (checkedValue == questionArray[currentQuestion].questionCorrectChoice) {
-        totalCorrect++;
-        // show questionDetails by revealing div
-    }
-    // else show details if answered incorrectly
-    console.log(totalCorrect, 'this is total correct');
-    currentQuestion++;
-
-    if (currentQuestion == (questionArray.length)) {
-        $('.main-section').hide();
-        $('.quiz-results p').text(`Total ${totalCorrect} out of ${totalQuestions}`)
-        $('.quiz-results').show();
-        $('.correct-counter').hide();
-        alert(`we've completed last question`);
-    }
     else {
-        // test user selection
-        $('.paragraph-correct-counter').empty();
-        $('.paragraph-correct-counter').append(totalCorrect);
-        $('.question-counter').empty();
-        $('.question-counter').append(currentQuestion);
-        $('#question').empty();
-        $('#question').text(questionArray[currentQuestion].questionText);
-        $('#choice-list').empty();
-        for (let i = 0; i < questionArray[currentQuestion].questionChoices.length; i++) {
-            let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option" required>${questionArray[currentQuestion].questionChoices[i]}</li>`;
-            console.log(buildChoiceList);
-            $('#choice-list').append(buildChoiceList);
+        console.log(currentQuestion, 'this is current question');
+        console.log(checkedValue, 'my answer');
+        console.log(questionArray[currentQuestion].questionCorrectChoice, 'correct answer')
+        // show question details
+        $('.explain-answer').show();
+        if (checkedValue == questionArray[(currentQuestion)].questionCorrectChoice) {
+            $('.you-correct').show();
+            $('.you-wrong').hide();
+        }
+        else {
+            $('.you-correct').hide();
+            $('.you-wrong').show();
+        }
+        $('.detail-explain').text(questionArray[(currentQuestion)].correctDetails);
+
+        // if statement to add to correct question total
+        if (checkedValue == questionArray[currentQuestion].questionCorrectChoice) {
+            totalCorrect++;
+            // show questionDetails by revealing div
+        }
+        // else show details if answered incorrectly
+        console.log(totalCorrect, 'this is total correct');
+        currentQuestion++;
+
+        if (currentQuestion == (questionArray.length)) {
+            $('.main-section').hide();
+            $('.quiz-results p').text(`Total ${totalCorrect} out of ${totalQuestions}`)
+            $('.quiz-results').show();
+            $('.correct-counter').hide();
+            alert(`we've completed last question`);
+        }
+        else {
+            // test user selection
+            $('.paragraph-correct-counter').empty();
+            $('.paragraph-correct-counter').append(totalCorrect);
+            $('.question-counter').empty();
+            $('.question-counter').append(currentQuestion);
+            $('#question').empty();
+            $('#question').text(questionArray[currentQuestion].questionText);
+            $('#choice-list').empty();
+            for (let i = 0; i < questionArray[currentQuestion].questionChoices.length; i++) {
+                let buildChoiceList = `<li><input class="option" type="radio" value=${i} name="option" required>${questionArray[currentQuestion].questionChoices[i]}</li>`;
+                console.log(buildChoiceList);
+                $('#choice-list').append(buildChoiceList);
+            }
         }
     }
 });
