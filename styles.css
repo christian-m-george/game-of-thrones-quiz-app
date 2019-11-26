@@ -83,7 +83,7 @@ section, footer {
     font-size: 18px;
 }
 
-.detail-explain, #choice-list {
+.detail-explain, #choice-list, #character-text {
     font-family: serif;
 }
 
@@ -100,7 +100,7 @@ section, footer {
 
 .explain-answer {
     display: none;
-    width: 35%;
+    width: 70%;
     color: white;
     border-radius: 5px;
     font-family: 'Game of Thrones', serif;
