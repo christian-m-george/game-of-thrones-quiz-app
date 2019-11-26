@@ -83,7 +83,7 @@ section, footer {
     font-size: 18px;
 }
 
-.detail-explain, #choice-list, #character-text {
+.detail-explain, #choice-list, .character-text {
     font-family: serif;
 }
 
@@ -116,4 +116,10 @@ section, footer {
 
 ul {
     list-style: none;
+}
+
+.character-img {
+    width: 30%;
+    box-shadow: 3px 3px black;
+    border: 1px solid black;
 }
