@@ -1,0 +1,129 @@
+/* @font-face {
+    font-family: 'Game of Thrones';
+    src: url('GameofThrones.eot');
+    src: url('GameofThrones.eot?#iefix') format('embedded-opentype'),
+        url('GameofThrones.woff') format('woff'),
+        url('GameofThrones.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+* {
+    box-sizing: border-box;
+}
+  
+/* html {
+    background-image: url(https://www.windowschimp.com/wp-content/uploads/2015/06/Windows10-Game-of-thrones-wallpaper-gameofthrones15_160.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%
+} */
+
+/* html {
+    background: rgba(0, 0, 0, 0) url("https://www.windowschimp.com/wp-content/uploads/2015/06/Windows10-Game-of-thrones-wallpaper-gameofthrones15_160.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+html {
+    background-color: black;
+}
+
+body {
+    text-align: center;
+}
+  
+header {
+    text-align: center;
+    color: white;
+    /* font-family: 'Game of Thrones', serif; */
+    margin-top: 50px;
+}
+
+section, footer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main-section {
+    text-align: center;
+    background-color: darkgrey;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    border-radius: 2px;
+    /* font-family: 'Game of Thrones', serif; */
+    /* opacity: .6; */
+    padding: 20px;
+}
+
+.social-bar {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.social-bar a {
+    display: inline-block;
+    text-align: center;
+    padding: 16px;
+    color: white;
+    font-size: 20px;
+    background-color: darkgrey;
+    border-radius: 2px;
+}
+
+#question {
+    font-size: 20px;
+}
+
+#choices {
+    font-size: 18px;
+}
+
+.detail-explain, #choice-list, .character-text {
+    font-family: serif;
+}
+
+.correct-counter {
+    width: 200px;
+    color: white;
+    border-radius: 5px;
+    /* font-family: 'Game of Thrones', serif; */
+    background-color: darkgrey;
+    /* opacity: .6; */
+    text-align: center;
+    padding: 10px;
+}
+
+.explain-answer {
+    display: none;
+    width: 85%;
+    color: white;
+    border-radius: 5px;
+    /* font-family: 'Game of Thrones', serif; */
+    background-color: darkgrey;
+    /* opacity: .6; */
+    text-align: center;
+    padding: 10px;
+}
+
+.quiz-results {
+    display: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.character-img {
+    width: 30%;
+    box-shadow: 3px 3px black;
+    border: 1px solid black;
+}
